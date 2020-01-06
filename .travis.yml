@@ -21,6 +21,7 @@ before_script:
 
 script:
   - pwd
+  - cmake --version
   - mkdir -p build
   - cd build && cmake ..
   - make -j$(nproc)

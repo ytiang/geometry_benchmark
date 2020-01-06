@@ -6,9 +6,9 @@ install_wave_geometry() {
 	cd ${SOURCE_DIR}
 	rm -rf _wave_geometry
 	git clone https://github.com/wavelab/wave_geometry.git
+	cd wave_geometry
 	git reset --hard d68d978
 
-	cd wave_geometry
 	mkdir build && cd build
 	cmake .. -DBUILD_TESTING=OFF
 	sudo make install
