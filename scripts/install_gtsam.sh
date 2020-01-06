@@ -7,7 +7,7 @@ install_gtsam() {
 	if [ -d "gtsam" ];then
 		echo "Already cloned gtsam!"
 	else
-		https://github.com/borglab/gtsam.git
+		git clone https://github.com/borglab/gtsam.git
 	fi
 
 	## use version 4.0.0
