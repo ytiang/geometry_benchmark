@@ -10,7 +10,7 @@ install_cmake() {
 
 	tar -xf cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz
 	## use version cmake 3.13.4
-	cd cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz
+	cd cmake-${CMAKE_VERSION}-Linux-x86_64
 	## install
 	./bootstrap && make -j$(nproc) && sudo make install
 	echo -e "\033[33m install cmake 3.13 successfully \033[0m"
