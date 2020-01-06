@@ -5,7 +5,7 @@ git:
   quiet: false
   depth: false
 
-compiler: g++
+#compiler: g++
 dist: xenial
 cache: ccache
 
@@ -14,7 +14,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get install -qq g++-7 gcc-7 libeigen3-dev libboost-all-dev libtbb-dev libthread libgeographic-dev
+  - sudo apt-get install -qq g++-7 gcc-7 libeigen3-dev libboost-all-dev libtbb-dev libgeographic-dev
 
 before_script:
   - bash scripts/install_dependencies.sh
