@@ -16,7 +16,7 @@ install_gtsam() {
 	rm -rf build && mkdir build
 	cd build 
 
-	cmake -DCMAKE_BUILD_TYPE=Release -DGTSAM_USE_SYSTEM_EIGEN=ON -DGTSAM_WITH_TBB=ON ..
+	cmake -DCMAKE_BUILD_TYPE=Release -DGTSAM_USE_SYSTEM_EIGEN=OFF -DGTSAM_WITH_TBB=ON ..
 	make -j$(nproc)
 	sudo make install
 	echo -e "\033[33m install gtsam 4.0.0 successfully \033[0m"
