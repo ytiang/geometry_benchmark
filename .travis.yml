@@ -1,0 +1,30 @@
+language: c++
+
+git:
+  submodules: true
+  quiet: false
+  depth: false
+
+compiler: g++
+dist: xenial
+cache: ccache
+
+before_install:
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install:
+  - sudo apt-get install -qq g++-7 gcc-7 libeigen3-dev libboost-all-dev libtbb-dev
+
+before_script:
+  - bash scripts/install_dependencies.sh
+
+script:
+  - pwd
+  - mkdir -p build
+  - cd build && cmake ..
+  - make -j$(nproc)
+  - cd benchmark && ./geometry_benchmark
+
+notifications:
+  email: false
