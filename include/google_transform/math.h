@@ -7,7 +7,7 @@
 
 #include "Eigen/Core"
 #include "port.h"
-#include "ceres/ceres.h"
+// #include "ceres/ceres.h"
 
 namespace cartographer {
 namespace common {
