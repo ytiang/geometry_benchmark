@@ -21,7 +21,7 @@
 #include "Eigen/Core"
 #include "Eigen/Geometry"
 
-#include "glog/logging.h"
+// #include "glog/logging.h"
 
 namespace cartographer {
 namespace transform {
