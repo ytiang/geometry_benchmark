@@ -1,14 +1,13 @@
 //
 // Created by yangt on 2020/1/4.
 //
-
-#include "google_transform/rigid_transform.h"
-#include "yt_pose/pose3d.hpp"
-
 #include <benchmark/benchmark.h>
 
 #include <mrpt/poses/CPose2D.h>
 #include <mrpt/poses/CPose3D.h>
+
+#include "google_transform/rigid_transform.h"
+#include "yt_pose/pose3d.hpp"
 
 #include <Eigen/Dense>
 #include <gtsam/geometry/Pose2.h>
@@ -118,7 +117,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, Manual2dTrans)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, Manual2dTrans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, Manual2dTrans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator,
                    GtsamPose2dConstruct)(benchmark::State &st) {
@@ -135,7 +135,8 @@ BENCHMARK_DEFINE_F(PoseGenerator,
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, GtsamPose2dConstruct)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, GtsamPose2dConstruct)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, GtsamPose2dTrans)(benchmark::State &st) {
     const gtsam::Pose2 input(input2d.x, input2d.y, input2d.yaw);
@@ -155,7 +156,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, GtsamPose2dTrans)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, GtsamPose2dTrans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, GtsamPose2dTrans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator,
                    Cartographer2dConstruct)(benchmark::State &st) {
@@ -173,7 +175,8 @@ BENCHMARK_DEFINE_F(PoseGenerator,
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, Cartographer2dConstruct)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, Cartographer2dConstruct)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, Cartographer2dTrans)(benchmark::State &st) {
     ct::Rigid2d input(Eigen::Vector2d(input2d.x, input2d.y), input2d.yaw);
@@ -192,7 +195,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, Cartographer2dTrans)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, Cartographer2dTrans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, Cartographer2dTrans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, MrptPose2dConstruct)(benchmark::State &st) {
     for (auto _:st) {
@@ -208,7 +212,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, MrptPose2dConstruct)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, MrptPose2dConstruct)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, MrptPose2dConstruct)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, MrptPose2dTrans)(benchmark::State &st) {
     const mp::CPose2D input(input2d.x, input2d.y, input2d.yaw);
@@ -227,7 +232,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, MrptPose2dTrans)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, MrptPose2dTrans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, MrptPose2dTrans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator,
                    GtsamPose3dConstruct)(benchmark::State &st) {
@@ -246,7 +252,8 @@ BENCHMARK_DEFINE_F(PoseGenerator,
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, GtsamPose3dConstruct)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, GtsamPose3dConstruct)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, GtsamPose3dTrans)(benchmark::State &st) {
     const gtsam::Pose3 input
@@ -269,7 +276,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, GtsamPose3dTrans)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, GtsamPose3dTrans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, GtsamPose3dTrans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator,
                    Cartographer3dConstruct)(benchmark::State &st) {
@@ -290,7 +298,8 @@ BENCHMARK_DEFINE_F(PoseGenerator,
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, Cartographer3dConstruct)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, Cartographer3dConstruct)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, Cartographer3dTrans)(benchmark::State &st) {
     const ct::Rigid3d input(Eigen::Vector3d(input3d.x, input3d.y, input3d.z),
@@ -316,7 +325,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, Cartographer3dTrans)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, Cartographer3dTrans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, Cartographer3dTrans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, MrptPose3dConstruct)(benchmark::State &st) {
     for (auto _:st) {
@@ -333,7 +343,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, MrptPose3dConstruct)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, MrptPose3dConstruct)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, MrptPose3dConstruct)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, MrptPose3dTrans)(benchmark::State &st) {
     const mp::CPose3D input(input3d.x,
@@ -363,7 +374,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, MrptPose3dTrans)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, MrptPose3dTrans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, MrptPose3dTrans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator,
                    YTPose3dConstruct)(benchmark::State &st) {
@@ -383,7 +395,8 @@ BENCHMARK_DEFINE_F(PoseGenerator,
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, YTPose3dConstruct)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, YTPose3dConstruct)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator, YTPose3dTrans)(benchmark::State &st) {
     const Pose3d input(eulerToQuaterion(input3d.roll,
@@ -408,7 +421,8 @@ BENCHMARK_DEFINE_F(PoseGenerator, YTPose3dTrans)(benchmark::State &st) {
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, YTPose3dTrans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, YTPose3dTrans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator,
                    WaveGeometryConstruct)(benchmark::State &st) {
@@ -431,7 +445,8 @@ BENCHMARK_DEFINE_F(PoseGenerator,
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, WaveGeometryConstruct)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, WaveGeometryConstruct)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_DEFINE_F(PoseGenerator,
                    WaveGeometry3dTRans)(benchmark::State &st) {
@@ -462,6 +477,7 @@ BENCHMARK_DEFINE_F(PoseGenerator,
         st.SetIterationTime(elapsed_seconds.count());
     }
 }
-BENCHMARK_REGISTER_F(PoseGenerator, WaveGeometry3dTRans)->Iterations(1000000)->UseManualTime();
+BENCHMARK_REGISTER_F(PoseGenerator, WaveGeometry3dTRans)
+->Iterations(1000000)->UseManualTime();
 
 BENCHMARK_MAIN();
