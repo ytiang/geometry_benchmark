@@ -13,7 +13,10 @@ message("benchmark LIB = ${benchmark_LIBRARIES}")
 
 include_directories(
   include
+  ${EIGEN3_INCLUDE_DIR}
 )
+
+message("EIGEN3 INCLUDE DIRS: ${EIGEN3_INCLUDE_DIR}")
 
 #add_executable(pose3_benchmark
 #  pose3_benchmark.cpp)
@@ -26,7 +29,6 @@ add_library(google_transform
   src/transform.cc
   src/pose3d.cpp)
 target_link_libraries(google_transform
-  Eigen3::Eigen
   glog)
 
 add_subdirectory(benchmark)
