@@ -29,6 +29,7 @@ add_library(google_transform
   src/transform.cc
   src/pose3d.cpp)
 target_link_libraries(google_transform
-  glog)
+  # glog
+  )
 
 add_subdirectory(benchmark)

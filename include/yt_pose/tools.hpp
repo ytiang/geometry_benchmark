@@ -7,7 +7,7 @@
 
 #include <geometry_msgs/PoseStamped.h>
 #include <yaml-cpp/yaml.h>
-#include <glog/logging.h>
+// #include <glog/logging.h>
 #include <chrono>
 
 #include "pose3d.hpp"
